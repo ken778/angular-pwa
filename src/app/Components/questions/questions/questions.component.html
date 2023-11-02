@@ -1,0 +1,11 @@
+<div class="main-container">
+       <div class="header" style="text-align: center; padding: 3rem;">
+            <h2>Questions</h2>
+       </div>
+       <div *ngFor="let question of displayedQuestions; let i = index">
+        <div (click)="showAnswer(i)">
+          {{ question.showAnswer ? question.answer : question.question }}
+        </div>
+      </div>
+      <button (click)="loadQuestions()">Next</button>
+</div>

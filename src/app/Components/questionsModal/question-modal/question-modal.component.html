@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Instructions!</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>1. Introductions</h3>
+   <div class="audio-container">
+    <mat-form-field>
+        <mat-label>Select Language</mat-label>
+        <mat-select [(ngModel)]="selectedValue" (selectionChange)="onSelectionChange()">
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+   </div>
+   <div class="example-button-row">
+    <button mat-raised-button color="primary" (click)="playAudio()" >PLAY</button>
+    <button mat-raised-button color="warn" (click)="stopAudio()" >STOP</button>
+  </div>
+  <div class="instruction-texts">
+    <ul>
+        <li>On each page, you will find two pictures.</li>
+        <li>You are represented by the person wearing a red and black T-shirt.</li>
+        <li>Decide which option is more like you in either Picture 1 (on the left) or Picture 2 (on the right).</li>
+        <li>Mark your choice as 1 or 2 on the answer sheet provided.</li>
+      </ul>
+  </div>
+  <div class="image-container">
+    <img class="instrPic" [src]="imageUrl" alt="Image Description">
+  </div>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button color="warn" mat-raised-button mat-dialog-close>Reject</button>
+  <button color="primary"mat-raised-button [mat-dialog-close]="true" cdkFocusInitial>Accept</button>
+</mat-dialog-actions>
